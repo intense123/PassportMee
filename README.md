@@ -1,6 +1,6 @@
-# PassportMe
+# PassportMee
 
-**PassportMe** is an AI-powered platform designed to simplify the Schengen visa application process, particularly for tourism purposes. It leverages advanced technologies like OCR, AI, and automation to make visa applications seamless, accurate, and user-friendly.
+**PassportMee** is an AI-powered platform designed to simplify the Schengen visa application process, particularly for tourism purposes. It leverages advanced technologies like OCR, AI, and automation to make visa applications seamless, accurate, and user-friendly.
 
 
 ## Features
