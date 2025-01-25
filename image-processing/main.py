@@ -4,6 +4,9 @@ import os
 import base64
 from openai import OpenAI
 from dotenv import load_dotenv
+from flask import Flask, render_template
+
+app = Flask(__name__)
 
 load_dotenv()
 
@@ -123,7 +126,9 @@ def detect_cap(image, face_y, face_h):
         print(f"Error in cap detection: {e}")
         return False
 
-def process_image(image):
+@app.route('/process_image/<image_path>', method=['GET'])
+def process_image(image_path):
+    image = cv2.imread(image_path)
     if image is None:
         print("Error: Could not load image.")
         return
@@ -193,10 +198,12 @@ if __name__ == "__main__":
     os.chdir(default_directory)
 
     # Load the image
-    image = cv2.imread('rayhan_cap.jpg')
-    processed_image = process_image(image)
+    # image = cv2.imread('rayhan_cap.jpg')
+    # processed_image = process_image(image)
 
-    if processed_image is not None:
-        # Save the processed image
-        cv2.imwrite('processed_image.jpg', processed_image)
-        print("Processed image saved as 'processed_image.jpg'")
+    # if processed_image is not None:
+    #     # Save the processed image
+    #     cv2.imwrite('processed_image.jpg', processed_image)
+    #     print("Processed image saved as 'processed_image.jpg'")
+
+    app.run(debug=True)
